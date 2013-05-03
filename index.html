@@ -1,40 +1,14 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Test Game</title>
-</head>
-<body>
-<video id="basic-stream" class="videostream" autoplay=""></video>
-</body>
-<script>
-  // Detect browser compatibility
-  var hasGetUserMedia = function(){
-    return !!(navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
-  }
-
-  if(hasGetUserMedia()){
-    alert('good to go!');
-    //specify a url to grab data from
-    window.URL = window.URL || window.webkitURL;
-    navigator.getUserMedia  = navigator.getUserMedia ||navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-
-    //provide fallbacks
-    var fallback = function(e){
-      console.log('falling back...')
-    }
-
-    //specify what context the stream will come from
-    var video = document.querySelector('video');
-    //pass in what options you want
-    navigator.getUserMedia({video: true, audio: true}, function(stream){
-        console.log('success!');
-        console.log('streams of data: ' , stream);
-        video.src = window.URL.createObjectURL(stream);
-    });
-  } else {
-    alert('please use a better browser for the full experience!');
-    fallback();
-  }
-</script>
+  <head>
+    <meta charset="UTF-8">
+    <title>Test Game</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <video id="basic-stream" class="videostream" autoplay=""></video>
+    <img src="" id="snapshot">
+    <canvas style="display:none;"></canvas>
+  </body>
+  <script src="script.js"></script>
 </html>
