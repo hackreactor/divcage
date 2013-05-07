@@ -1,6 +1,6 @@
 // Main.js: Implementation of getUserMedia API
 
-/*global recordVideo:false, snapShot:false */
+/*global recordVideo:false, snapShot:false, draw:false */
 
 //Select html element id's
 var v = document.querySelector('#main-video'),
@@ -41,6 +41,10 @@ if(hasGetUserMedia()){
     snapShot();
   });
 
+  $('#track-btn').on('click', function(){
+    //look at snapshot.js for functionality
+    draw();
+  });
 } else {
   //no modern browser detected...fallback?
   alert('please use a better browser');

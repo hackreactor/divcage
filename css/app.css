@@ -24,3 +24,11 @@ body {
 .main-container {
   margin: 1.5em;
 }
+
+#highlight{
+  position:fixed;
+  background-color:black;
+  opacity:1;
+  height:50px;
+  width:50px;
+}
