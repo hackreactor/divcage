@@ -6,13 +6,13 @@ function rgb2hsl(r, g, b) {
     var delta = max - min;
     var h, s, l;
 
-    if (max == min) {
+    if (max === min) {
       h = 0;
-    } else if (r == max) {
+    } else if (r === max) {
       h = (g - b) / delta;
-    } else if (g == max) {
+    } else if (g === max) {
       h = 2 + (b - r) / delta;
-    } else if (b == max) {
+    } else if (b === max) {
       h = 4 + (r - g) / delta;
     }
 
@@ -24,7 +24,7 @@ function rgb2hsl(r, g, b) {
 
     l = (min + max) / 2;
 
-    if (max == min) {
+    if (max === min) {
       s = 0;
     } else if (l <= 0.5) {
       s = delta / (max + min);
@@ -33,4 +33,4 @@ function rgb2hsl(r, g, b) {
     }
 
     return [h, s * 100, l * 100];
-};
+}

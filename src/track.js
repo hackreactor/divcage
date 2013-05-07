@@ -1,6 +1,6 @@
 //track.js: tracking colors
 
-/*global mainVideoWidth:false, mainVideoHeight:false, x:false,
+/*global mainVideoWidth:false, mainVideoHeight:false, rgb2hsl: false, x:false,
          v:false, hl:false */
 
 var draw = function() {
