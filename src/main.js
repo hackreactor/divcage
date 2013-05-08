@@ -43,6 +43,8 @@ if(hasGetUserMedia()){
 
   $('#track-btn').on('click', function(){
     //look at track.js for functionality
+    $('#main-video').css('display', 'none');
+    $('#main-canvas').css('visibility', 'visible');
     draw();
   });
 } else {
