@@ -9,7 +9,7 @@
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/bootstrap-responsive.css" rel="stylesheet">
-  <link href="css/app_style.css" rel="stylesheet">
+  <link href="css/gamecanvas_5butt_template.css" rel="stylesheet">
   <!-- Add libs here -->
   <script src="lib/jquery.v2.min.js"></script>
   <!--<script src="lib/bootstrap.min.js"></script>-->
@@ -18,7 +18,7 @@
   <body>
 
     <div class="navbar-wrapper">
-          <div class="container">
+      <div class="container">
 
         <div class="navbar navbar-inverse">
           <div class="navbar-inner">
@@ -45,21 +45,28 @@
     <div class="container media">
 
       <div class="row">
-        <div class="span4">
-          <span id="startbutton"class="startbutton"><p> Start </p> </span>
-          <span id="snapshot" class="snap_shot"><p> Snap Shot </p> </span>
+        <div class="span6">
+          <span id="startbutton" class="startbutton"><p> Start </p> </span>
+        </div>
+        <div class="span6">
           <span id="stopbutton" class="stopbutton"> <p> Stop </p> </span>
-          <span id="trackbutton" class="trackbutton"> <p> Track </p> </span>
-          <span id="erasebutton" class="erasebutton"> <p> Erase </p> </span>
-          <span id="paintbutton" class="paintbutton"> <p> Paint </p> </span>
+        </div>
+      </div> <!-- ROW -->
+<!--         <div class="span2">
+          <span id="snapshot" class="snap_shot"><p> Snap Shot </p> </span>
+        </div> -->
+      <div class="row">
+        <div class="span3">
+           <span id="paintbutton" class="paintbutton"> <p> Paint </p> </span>
+           <span id="erasebutton" class="erasebutton"> <p> Erase </p> </span>
+           <span id="snapshot" class="snap_shot"><p> Snap Shot </p> </span>
         </div>
         <div class="span8">
           <video id="main-video" class="main-video" autoplay=""></video>
           <canvas id="main-canvas" class="main-canvas"></canvas>
           <div id="highlight"></div>
         </div>
-      </div> <!-- Row -->
-
+      </div> <!-- ROW -->
       <!-- HTML canvas elements -->
 
       <hr class="featurette-divider">

@@ -31,24 +31,24 @@ if(hasGetUserMedia()){
   navigator.getUserMedia  = navigator.getUserMedia ||navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
   //List of all button functionalities
-  $('#record-btn').on('click', function(){
+  $('#startbutton').on('click', function(){
     //look at record.js for funcitonality
     recordVideo();
   });
 
-  $('#snapshot-btn').on('click', function(){
+  $('#snapshot').on('click', function(){
     //look at snapshot.js for functionality
     snapShot();
   });
 
-  $('#track-btn').on('click', function(){
+  $('#trackbutton').on('click', function(){
     //look at track.js for functionality
     $('#main-video').css('display', 'none');
     $('#main-canvas').css('visibility', 'visible');
     draw();
   });
 
-  $('#erase-btn').on('click', function(){
+  $('#erasebutton').on('click', function(){
     console.log(location);
     // location.reload();
     //look at track.js for functionality
@@ -58,7 +58,7 @@ if(hasGetUserMedia()){
     erase();
   });
 
-  $('#paint-btn').on('click', function(){
+  $('#paintbutton').on('click', function(){
     // location.reload();
     console.log(location);
     //look at track.js for functionality
@@ -76,7 +76,7 @@ if(hasGetUserMedia()){
 }
 
 //stop recording (for dev purposes)
-$('#stop-record-btn').on('click', function(){
+$('#stopbutton').on('click', function(){
   console.log('stopping..');
   localStream.stop();
 });

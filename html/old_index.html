@@ -1,0 +1,40 @@
+<!-- modularize html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finger Canvas</title>
+  <!-- Add stylesheets here -->
+  <link rel="stylesheet" href="css/app.css">
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  <!-- Add libs here -->
+  <script src="lib/jquery.v2.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+</head>
+  <body>
+    <div class="button-toolbar">
+      <button class="btn btn-warning" id="record-btn" type="button">Record Me</button>
+      <button class="btn btn-danger" id="stop-record-btn" type="button">Stop Recording</button>
+      <button class="btn btn-info" id="track-btn" type="button">Track</button>
+      <button class="btn btn-info" id="snapshot-btn" type="button">Capture Me</button>
+      <button class="btn btn-info" id="erase-btn" type="button">Erase</button>
+      <button class="btn btn-info" id="paint-btn" type="button">Paint</button>
+    </div>
+
+    <!-- HTML canvas elements -->
+    <div class="main-container">
+      <video id="main-video" autoplay=""></video>
+      <canvas id="main-canvas"></canvas>
+      <div id="highlight"></div>
+    </div>
+  </body>
+
+  <!-- new scripts -->
+  <script src="src/main.js"></script>
+  <script src="src/snapshot.js"></script>
+  <script src="src/record.js"></script>
+  <script src="src/track.js"></script>
+  <script src="src/erase.js"></script>
+  <script src="src/paint.js"></script>
+  <script src="src/rgb2hsl.js"></script>
+</html>
