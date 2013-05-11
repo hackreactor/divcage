@@ -88,6 +88,18 @@
       font-size: 2em;
     }
 
+    .media .span4 .eraserbutton p {
+      color: white;
+      font-weight: bold;
+      background-color: rgba(0, 0, 255, 0.6);
+      padding: 0.5em;
+      border-radius: 0.5em;
+      height: 1.5em;
+      text-align: center;
+      border: 0.1em solid white;
+      font-size: 2em;
+    }
+
     .media .span4 .paintbutton p {
       color: white;
       font-weight: bold;

@@ -1,24 +1,5 @@
-//track.js: tracking colors
-
-/*global mainVideoWidth:false, mainVideoHeight:false, rgb2hsl: false, x:false,
-         v:false, hl:false, maskArray:false, paintArray:false */
-
-var createPaintArray = function() {
-  var rowArr;
-  var arr = [];
-  var ri, ci;
-  for (ri = 0; ri < mainVideoHeight; ri++) {
-    rowArr = [];
-    for (ci = 0; ci < mainVideoWidth; ci++) {
-      rowArr.push(false);
-    }
-    arr.push(rowArr);
-  }
-  return arr;
-};
-
-var paint = function() {
-  var w = mainVideoWidth,
+var eraser = function() {
+ var w = mainVideoWidth,
       h = mainVideoHeight;
 
   x.drawImage(v, 0, 0, w, h);
@@ -28,14 +9,15 @@ var paint = function() {
 
   var map = new Array(w);
   var scores = new Array(w);
-  for(var i = 0; i < w; i++){
+  var i;
+  for(i = 0; i < w; i++){
     map[i] = new Array(h);
     scores[i] = new Array(h);
   }
 
-  var ri, ci, i;
+  var ri, ci;
 
-  for(i = 0; i < pixCount; i++){
+  for(var i = 0; i < pixCount; i++){
     var index = i*4;
     var r = pixels.data[index],
         g = pixels.data[index+1],
@@ -53,52 +35,22 @@ var paint = function() {
     if (ha >= 70 && ha <= 180 &&
         s >= 25 && s <= 90 &&
         l >= 20 && l <= 95) {
-      
-      switch(colorChoice) {
 
-        case "red":
-        paintArray[ri][ci]=[255,0,0,255];
-        map[left][top] = 1; break;
-        
-        case "orange":
-        paintArray[ri][ci]=[255,165,0,255];
-        map[left][top] = 1; break;
-        
-        case "yellow":
-        paintArray[ri][ci]=[255,255,0,255];
-        map[left][top] = 1; break;
-   
-        case "green":
-        paintArray[ri][ci]=[0,255,0,255];
-        map[left][top] = 1; break; 
-
-        case "blue":
-        paintArray[ri][ci]=[0,0,255,255];
-        map[left][top] = 1; break; 
-
-        case "purple":
-        paintArray[ri][ci]=[128,0,128,255];
-        map[left][top] = 1; break;   
-
-        case "black":
-        paintArray[ri][ci]=[0,0,0,255];
-        map[left][top] = 1; break;  
-
-        case "white":
-        paintArray[ri][ci]=[255,255,255,255];
-        map[left][top] = 1; break;      
-      }
-
-    } else {
+        paintArray[ri][ci]=false;
+        map[left][top] = 1;
+    }else{
         map[left][top] = 0;
     }
-
     if(paintArray[ri][ci]){
       pixels.data[i * 4] = paintArray[ri][ci][0];
       pixels.data[i * 4 + 1] = paintArray[ri][ci][1];
       pixels.data[i * 4 + 2] = paintArray[ri][ci][2];
+    } else {
+      pixels.data[i * 4] = pixels.data[index];
+      pixels.data[i * 4 + 1] = pixels.data[index+1];
+      pixels.data[i * 4 + 2] = pixels.data[index+2];
+      pixels.data[i * 4 + 3] = pixels.data[index+3];
     }
-      
   }
 
   // Sum the score for each pixel
@@ -107,8 +59,7 @@ var paint = function() {
     for(i = 10; i < w-10; i++){
       scores[i][j] = map[i][j];
       for(ci = 10; ci > 0; ci--) {
-        scores[i][j] += map[i-ci][j] + map[i+ci][j] +
-          map[i][j-ci] + map[i][j+ci];
+        scores[i][j] += map[i-ci][j] + map[i+ci][j] + map[i][j-ci] + map[i][j+ci];
       }
     }
   }
@@ -128,11 +79,10 @@ var paint = function() {
       }
     }
   }
+
   hl.style.left = '' + targetx + 'px';
   hl.style.top = '' + (($('.button-toolbar').height() * 2) + targety) + 'px';
   x.putImageData(pixels, 0, 0);
 
-  if(!erasing) {
-    setTimeout(paint,50);
-  }
+  setTimeout(erase,50);
 };

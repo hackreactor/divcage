@@ -12,7 +12,9 @@ var v = document.querySelector('#main-video'),
     //dimensions
     mainVideoHeight = 480,
     mainVideoWidth = 640,
-    colorChoice;
+    erasing = false,
+    colorChoice,
+    paintArray;
 
 
 //Set dimensions for elmements
@@ -50,7 +52,7 @@ if(hasGetUserMedia()){
   });
 
   $('#erasebutton').on('click', function(){
-    console.log(location);
+    erasing = true;
     // location.reload();
     //look at track.js for functionality
     $('#main-video').css('display', 'none');
@@ -58,6 +60,14 @@ if(hasGetUserMedia()){
     maskArray = createMaskArray();
     erase();
   });
+
+  $('#eraserbutton').on('click', function(){
+    if(paintArray === undefined) {
+      alert('Nothing to erase!');
+    } else {
+      eraser();
+    };
+  })
 
   // $('#paintbutton').on('click', function(){
   //   // location.reload();
@@ -73,10 +83,11 @@ if(hasGetUserMedia()){
 
   $('li').on('click',function(){
     colorChoice = $(this).attr('class');
-    console.log(colorChoice);
     $('#main-video').css('display', 'none');
     $('#main-canvas').css('visibility', 'visible');
-    paintArray = createPaintArray();
+    if(paintArray === undefined) {
+      paintArray = createPaintArray();
+    };
     paint();
   });
  
