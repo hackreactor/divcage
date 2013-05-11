@@ -3,8 +3,6 @@
 /*global mainVideoWidth:false, mainVideoHeight:false, rgb2hsl: false, x:false,
          v:false, hl:false */
 
-var w = mainVideoWidth, h = mainVideoHeight;
-
 var pixels, pixCount;
 
 var draw = function() {
@@ -75,9 +73,9 @@ var draw = function() {
     }
   }
 
-  hl.style.left = '' + targetx + 'px';
+  hl.style.left = '' + (v.width - targetx) + 'px';
   hl.style.top = '' + (($('.button-toolbar').height() * 2) + targety) + 'px';
   x.putImageData(pixels, 0, 0);
 
-  setTimeout(draw,24/1000);
+  setTimeout(draw,50);
 };

@@ -10,17 +10,17 @@ var v = document.querySelector('#main-video'),
     hl = document.querySelector('#highlight'),
     localStream,
     //dimensions
-    mainVideoHeight = 480,
-    mainVideoWidth = 640,
+    h = 480,
+    w = 640,
     erasing = false,
     colorChoice,
     paintArray;
 
 
 //Set dimensions for elmements
-$('#main-video').attr('width', mainVideoWidth +'px').attr('height', mainVideoHeight + 'px');
+$('#main-video').attr('width', w +'px').attr('height', h + 'px');
 
-$('#main-canvas').attr('width', mainVideoWidth +'px').attr('height', mainVideoHeight + 'px');
+$('#main-canvas').attr('width', w +'px').attr('height', h + 'px');
 
 //Detect browser compatibility
 var hasGetUserMedia = function(){
