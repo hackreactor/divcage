@@ -9,13 +9,26 @@ var v = document.querySelector('#main-video'),
     x = c.getContext('2d'),
     hl = document.querySelector('#highlight'),
     localStream,
-    //dimensions
-    mainVideoHeight = 480,
+    // remove the following 2 lines eventually
     mainVideoWidth = 640,
+    mainVideoHeight = 480,
+    w = mainVideoWidth, 
+    h = mainVideoHeight,
     erasing = false,
     colorChoice,
     paintArray;
 
+var pixelDataArray = function(elem) {
+  var ri, ci, rowArr, arr = [];
+  for(ri = 0; ri < mainVideoHeight; ri++) {
+    rowArr = [];
+    for(ci = 0; ci < mainVideoWidth; ci++) {
+      rowArr.push(elem);
+    }
+    arr.push(rowArr);
+  }
+  return arr;
+};
 
 //Set dimensions for elmements
 $('#main-video').attr('width', mainVideoWidth +'px').attr('height', mainVideoHeight + 'px');
@@ -101,3 +114,4 @@ $('#stopbutton').on('click', function(){
   console.log('stopping..');
   localStream.stop();
 });
+
