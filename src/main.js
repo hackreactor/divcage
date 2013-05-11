@@ -11,7 +11,8 @@ var v = document.querySelector('#main-video'),
     localStream,
     //dimensions
     mainVideoHeight = 480,
-    mainVideoWidth = 640;
+    mainVideoWidth = 640,
+    colorChoice;
 
 
 //Set dimensions for elmements
@@ -58,18 +59,27 @@ if(hasGetUserMedia()){
     erase();
   });
 
-  $('#paintbutton').on('click', function(){
-    // location.reload();
-    console.log(location);
-    //look at track.js for functionality
+  // $('#paintbutton').on('click', function(){
+  //   // location.reload();
+  //   console.log(location);
+  //   //look at track.js for functionality
 
-    $('#main-canvas').css('background-image', 'url("../lib/orange.jpeg")');
+  //   $('#main-canvas').css('background-image', 'url("../lib/orange.jpeg")');
+  //   $('#main-video').css('display', 'none');
+  //   $('#main-canvas').css('visibility', 'visible');
+  //   paintArray = createPaintArray();
+  //   paint();
+  // });
+
+  $('li').on('click',function(){
+    colorChoice = $(this).attr('class');
+    console.log(colorChoice);
     $('#main-video').css('display', 'none');
     $('#main-canvas').css('visibility', 'visible');
     paintArray = createPaintArray();
     paint();
   });
-
+ 
 } else {
   //no modern browser detected...fallback?
   alert('please use a better browser');

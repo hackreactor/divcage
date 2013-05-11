@@ -9,11 +9,7 @@ var pixels, pixCount;
 
 var draw = function() {
 
-  x.save();
-  x.translate(mainVideoWidth, 0);
-  x.scale(-1,1);
   x.drawImage(v, 0, 0, w, h);
-  x.restore();
 
   pixels = x.getImageData(0, 0, w, h);
   pixCount = pixels.data.length / 4;
@@ -83,5 +79,5 @@ var draw = function() {
   hl.style.top = '' + (($('.button-toolbar').height() * 2) + targety) + 'px';
   x.putImageData(pixels, 0, 0);
 
-  setTimeout(draw,50);
+  setTimeout(draw,24/1000);
 };

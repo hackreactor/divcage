@@ -53,13 +53,50 @@ var paint = function() {
     if (ha >= 70 && ha <= 180 &&
         s >= 25 && s <= 90 &&
         l >= 20 && l <= 95) {
-
-        paintArray[ri][ci]=0;
-        map[left][top] = 1;
+      
+      if (colorChoice === "red"){
+      console.log(colorChoice);
+      paintArray[ri][ci]=[255,0,0,255];
+      map[left][top] = 1;
+      }
+      if (colorChoice === "orange"){
+      paintArray[ri][ci]=[255,165,0,255];
+      map[left][top] = 1;
+      }
+      if (colorChoice === "yellow"){
+      paintArray[ri][ci]=[255,255,0,255];
+      map[left][top] = 1;
+      }
+      if (colorChoice === "green"){
+      paintArray[ri][ci]=[0,255,0,255];
+      map[left][top] = 1;
+      }
+      if (colorChoice === "blue"){
+      paintArray[ri][ci]=[0,0,255,255];
+      map[left][top] = 1;
+      }
+      if (colorChoice === "purple"){
+      paintArray[ri][ci]=[128,0,128,255];
+      map[left][top] = 1;
+      }
+      if (colorChoice === "black"){
+      paintArray[ri][ci]=[0,0,0,255];
+      map[left][top] = 1;
+      }
+      if (colorChoice === "white"){
+      paintArray[ri][ci]=[255,255,255,255];
+      map[left][top] = 1;
+      }
     }else{
         map[left][top] = 0;
     }
-    pixels.data[i * 4 + 3] = paintArray[ri][ci];
+    if(paintArray[ri][ci]){
+      //pixels.data[i * 4 + 3] = paintArray[ri][ci][3];
+      pixels.data[i * 4 + 2] = paintArray[ri][ci][2];
+      pixels.data[i * 4 + 1] = paintArray[ri][ci][1];
+      pixels.data[i * 4] = paintArray[ri][ci][0];
+    }
+      
   }
 
   // Sum the score for each pixel

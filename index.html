@@ -12,11 +12,26 @@
   <link href="css/app_style.css" rel="stylesheet">
   <!-- Add libs here -->
   <script src="lib/jquery.v2.min.js"></script>
-  <!--<script src="lib/bootstrap.min.js"></script>-->
+  <script src="lib/bootstrap.min.js"></script>
 </head>
 
   <body>
-
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Action
+        <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="red">RED</li>
+          <li class="orange">ORANGE</li>
+          <li class="yellow">YELLOW</li>
+          <li class="green">GREEN</li>
+          <li class="blue">BLUE</li>
+          <li class="purple">PURPLE</li>
+          <li class="black">BLACK</li>
+          <li class="white">WHITE</li>
+        </ul>
+      </div>
     <div class="navbar-wrapper">
           <div class="container">
 
@@ -51,8 +66,7 @@
           <span id="stopbutton" class="stopbutton"> <p> Stop </p> </span>
           <span id="trackbutton" class="trackbutton"> <p> Track </p> </span>
           <span id="erasebutton" class="erasebutton"> <p> Erase </p> </span>
-          <span id="paintbutton" class="paintbutton"> <p> Paint </p> </span>
-        </div>
+     </div>
         <div class="span8">
           <video id="main-video" class="main-video" autoplay=""></video>
           <canvas id="main-canvas" class="main-canvas"></canvas>
