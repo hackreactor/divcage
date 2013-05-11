@@ -1,6 +1,6 @@
 var eraser = function() {
  var w = mainVideoWidth,
-      h = mainVideoHeight;
+     h = mainVideoHeight;
 
   x.drawImage(v, 0, 0, w, h);
 
@@ -45,11 +45,6 @@ var eraser = function() {
       pixels.data[i * 4] = paintArray[ri][ci][0];
       pixels.data[i * 4 + 1] = paintArray[ri][ci][1];
       pixels.data[i * 4 + 2] = paintArray[ri][ci][2];
-    } else {
-      pixels.data[i * 4] = pixels.data[index];
-      pixels.data[i * 4 + 1] = pixels.data[index+1];
-      pixels.data[i * 4 + 2] = pixels.data[index+2];
-      pixels.data[i * 4 + 3] = pixels.data[index+3];
     }
   }
 
@@ -84,5 +79,5 @@ var eraser = function() {
   hl.style.top = '' + (($('.button-toolbar').height() * 2) + targety) + 'px';
   x.putImageData(pixels, 0, 0);
 
-  setTimeout(erase,50);
+  setTimeout(eraser,50);
 };
