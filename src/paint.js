@@ -16,7 +16,7 @@ var paint = function() {
       pixCount = pixels.data.length / 4;
 
   var emptyArray = pixelDataArray(undefined);
-  var map = emptyArray, scores = emptyArray;
+  // var map = emptyArray, scores = emptyArray;
 
   var index, r, g, b, hsl, ha, s, l;
 
@@ -47,7 +47,7 @@ var paint = function() {
         case 'green':
         paintArray[ri][ci]=[0,255,0,255]; break; 
         case 'blue':
-        paintArray[ri][ci]=[0,0,255,255]; break; 
+        paintArray[ri][ci]=[98,138,215,255]; break; 
         case 'purple':
         paintArray[ri][ci]=[128,0,128,255]; break;   
         case 'black':
@@ -55,10 +55,10 @@ var paint = function() {
         case 'white':
         paintArray[ri][ci]=[255,255,255,255]; break;      
       };
-      map[ri][ci] = 1; 
+      // map[ri][ci] = 1; 
 
     } else {
-      map[ri][ci] = 0;
+      // map[ri][ci] = 0;
     }
 
     if(paintArray[ri][ci]){
@@ -69,8 +69,8 @@ var paint = function() {
     }
   }
 
-  scoreSum(scores, map);
-  findClosestHighScore(scores);
+  // scoreSum(scores, map);
+  // findClosestHighScore(scores);
   
   x.putImageData(pixels, 0, 0);  
   //highlightPlacer(x, pixels);
