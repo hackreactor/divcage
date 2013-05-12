@@ -2,10 +2,7 @@
 
 /*global mainVideoWidth:false, mainVideoHeight:false, rgb2hsl: false, x:false,
          v:false, hl:false */
-<<<<<<< HEAD
-=======
 
->>>>>>> 16faf9155fab470e2bdd4f72b20ad5cb70068602
 var pixels, pixCount;
 
 var draw = function() {

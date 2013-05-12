@@ -148,7 +148,6 @@ if(hasGetUserMedia()){
     console.log('recording...');
     toggleStartStop();
   });
-<<<<<<< HEAD
 
   //Stop recording (for dev purposes)
   $('#stopbutton').on('click', function(){
@@ -156,8 +155,6 @@ if(hasGetUserMedia()){
     localStream.stop();
   });
  
-=======
->>>>>>> 16faf9155fab470e2bdd4f72b20ad5cb70068602
 } else {
   //no modern browser detected...fallback?
   alert('please use a better browser');
