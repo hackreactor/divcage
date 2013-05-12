@@ -9,13 +9,67 @@ var v = document.querySelector('#main-video'),
     x = c.getContext('2d'),
     hl = document.querySelector('#highlight'),
     localStream,
+
     //dimensions
     h = 480,
     w = 640,
+
     erasing = false,
     colorChoice,
     paintArray;
 
+var pixelDataArray = function(elem) {
+  var rowArr, arr = [];
+  for(var ri = 0; ri < h; ri++) {
+    rowArr = [];
+    for(var ci = 0; ci < w; ci++) {
+      rowArr.push(elem);
+    }
+    arr.push(rowArr);
+  }
+  return arr;
+};
+
+    // Sum the score for each pixel
+var scoreSum = function(scores, map) {
+  var neighborsCount = 10;
+  for(var ri = neighborsCount; ri < (h - neighborsCount); ri++){
+    for(var ci = neighborsCount; ci < (w - neighborsCount); ci++){
+      scores[ri][ci] = map[ri][ci];
+      // scores[ci][ri] = map[ci][ri];
+      for(var pi = neighborsCount - 1; pi > 0; pi--) {      
+        scores[ri][ci] += map[ri - pi][ci] + map[ri + pi][ci];
+        scores[ri][ci] += map[ri][ci - pi] + map[ri][ci + pi];
+        // scores[ci][ri] += map[ci - pi][ri] + map[ci + pi][ri];
+        // scores[ci][ri] += map[ci][ri - pi] + map[ci][ri + pi];
+      }
+    }
+  }
+};
+
+var findClosestHighScore = function(scores) {
+  //Find the pixel closest to the top left that has the highest score. The
+  //  pixel with the highest score is where the highlight box will appear.
+  var neighborsCount = 10;
+  targetx = 0, targety = 0, targetscore = 0;
+  // Are these global intentionally?
+
+  for(var ri = 10; ri < (h - 10); ri++){
+    for(var ci = 10; ci < (w - 10); ci++){
+      if(scores[ri][ci] > targetscore){
+        targetx = ri;
+        targety = ci;
+        targetscore = scores[ri][ci];
+      }
+    }
+  }
+}
+
+var highlightPlacer = function(x, pixels) {
+  hl.style.left = '' + targetx + 'px';
+  hl.style.top = '' + (($('.button-toolbar').height() * 2) + targety) + 'px';
+  x.putImageData(pixels, 0, 0);  
+}
 
 //Set dimensions for elmements
 $('#main-video').attr('width', w +'px').attr('height', h + 'px');
@@ -53,7 +107,6 @@ if(hasGetUserMedia()){
 
   $('#erasebutton').on('click', function(){
     erasing = true;
-    // location.reload();
     //look at track.js for functionality
     $('#main-video').css('display', 'none');
     $('#main-canvas').css('visibility', 'visible');
@@ -95,13 +148,25 @@ if(hasGetUserMedia()){
     console.log('recording...');
     toggleStartStop();
   });
+<<<<<<< HEAD
+
+  //Stop recording (for dev purposes)
+  $('#stopbutton').on('click', function(){
+    console.log('stopping..');
+    localStream.stop();
+  });
+ 
+=======
+>>>>>>> 16faf9155fab470e2bdd4f72b20ad5cb70068602
 } else {
   //no modern browser detected...fallback?
   alert('please use a better browser');
 }
 
-//stop recording (for dev purposes)
-$('#stopbutton').on('click', function(){
-  console.log('stopping..');
-  localStream.stop();
-});
+// Moved below into if block
+// //stop recording (for dev purposes)
+// $('#stopbutton').on('click', function(){
+//   console.log('stopping..');
+//   localStream.stop();
+// });
+

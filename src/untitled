@@ -1,0 +1,41 @@
+h = 30; w = 25;
+
+var pixelDataArray = function(elem) {
+  var ri, ci, rowArr, arr = [];
+  for(ri = 0; ri < h; ri++) {
+    rowArr = [];
+    for(ci = 0; ci < w; ci++) {
+      rowArr.push(elem);
+    }
+    arr.push(rowArr);
+  }
+  return arr;
+};
+
+scores = pixelDataArray(0);
+map = pixelDataArray(0);
+var ril = [];
+var cil = [];
+
+  for(var j = 10; j < h - 10; j++){
+    for(var i = 10; i < w - 10; i++){
+      scores[i][j] = map[i][j];
+      for(var ci= 10; ci > 0; ci--) {
+        console.log(j,i,ci)
+        ril.push(i - ci);
+        ril.push(i + ci);
+        cil.push(i - ci);
+        cil.push(i + ci);
+      }
+    }
+  }
+
+  console.log(ril)
+  console.log(cil)
+
+
+
+        // scores[i][j] += map[i - ci][j];
+        // scores[i][j] += map[i + ci][j];
+        // scores[i][j] += map[i][j - ci];
+        // scores[i][j] += map[i][j + ci];
