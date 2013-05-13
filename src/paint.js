@@ -33,7 +33,7 @@ var paint = function() {
     var ri = Math.floor(pi/w),
         ci = pi % w;
         
-    if (ha >= 70 && ha <= 180 &&
+    if (ha >= 75 && ha <= 165 &&
         s >= 25 && s <= 90 &&
         l >= 20 && l <= 95) {
 

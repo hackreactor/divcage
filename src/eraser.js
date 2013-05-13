@@ -14,7 +14,7 @@ var eraser = function() {
       pixCount = pixels.data.length / 4;
 
   var emptyArray = pixelDataArray(undefined);
-  var map = emptyArray, scores = emptyArray;
+  // var map = emptyArray, scores = emptyArray;
 
   for(var pi = 0; pi < pixCount; pi++){
     index = pi*4;
@@ -35,11 +35,12 @@ var eraser = function() {
 
       // Remove color data from the cells that are touched 
       paintArray[ri][ci] = false;
-      map[ri][ci] = 1;
+      // map[ri][ci] = 1;
 
-    } else {
-      map[ri][ci] = 0;
-    }
+    } 
+    // else {
+    //   map[ri][ci] = 0;
+    // }
 
     // If color data exist, paint the pixel with corresponding color 
     if(paintArray[ri][ci]){
@@ -49,9 +50,10 @@ var eraser = function() {
     }
   }
 
-  scoreSum(scores, map);
-  findClosestHighScore(scores);
-  highlightPlacer(x, pixels);
+  // scoreSum(scores, map);
+  // findClosestHighScore(scores);
+  // highlightPlacer(x, pixels);
+  x.putImageData(pixels, 0, 0);
 
   //put conditional to below: when does eraser mode stop?
   if(erasing && (!painting)) {

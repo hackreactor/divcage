@@ -19,7 +19,7 @@ var erase = function() {
       pixCount = pixels.data.length / 4;
 
   var emptyArray = pixelDataArray(undefined);
-  var map = emptyArray, scores = emptyArray;
+  // var map = emptyArray, scores = emptyArray;
 
   var index, r, g, b, hsl, ha, s, l;
 
@@ -42,15 +42,17 @@ var erase = function() {
 
         maskArray[ri][ci]=0;
         map[ri][ci] = 1;
-    } else {
-        map[ri][ci] = 0;
-    }
+    } 
+    // else {
+    //     map[ri][ci] = 0;
+    // }
     pixels.data[pi * 4 + 3] = maskArray[ri][ci];
   }
 
-  scoreSum(scores, map);
-  findClosestHighScore(scores);
-  highlightPlacer(x, pixels);
+  // scoreSum(scores, map);
+  // findClosestHighScore(scores);
+  // highlightPlacer(x, pixels);
+   x.putImageData(pixels, 0, 0);
 
   // Keep re-rendering until the current mode changes
   // while() {
