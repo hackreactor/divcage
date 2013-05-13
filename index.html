@@ -53,11 +53,13 @@
         <div class="span8">
           <video id="main-video" class="main-video"   autoplay=""> </video>
           <canvas id="main-canvas" class="main-canvas"></canvas>
+          <!--imaage tag with no src for saving canvas as image-->
+          <img id='main-image'/>
           <div id="highlight"></div>
         </div>
         <div class="span2">
           <span id="startbutton" class="example button green top-margin move-left"><p> Start </p> </span>
-          <span id="stopbutton" class="button red move-left"> <p> Stop </p> </span>
+          <span id="savebutton" class="button red move-left"> <p> Save </p> </span>
         </div>
       </div> <!-- ROW -->
 
@@ -76,5 +78,7 @@
   <script src="src/paint.js"></script>
   <script src="src/rgb2hsl.js"></script>
   <script src="src/speech.js"></script>
+  <script src="src/saveimage.js"></script>
+
 </html>
 

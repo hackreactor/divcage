@@ -4,7 +4,8 @@
 
 //Select html element id's
 var v = document.querySelector('#main-video'),
-    c = document .querySelector('#main-canvas'),
+    c = document.querySelector('#main-canvas'),
+    image = document.querySelector('#main-image'),
     //canvas x cord size
     x = c.getContext('2d'),
     hl = document.querySelector('#highlight'),
@@ -77,6 +78,8 @@ $('#main-video').attr('width', w +'px').attr('height', h + 'px');
 
 $('#main-canvas').attr('width', w +'px').attr('height', h + 'px');
 
+$('#main-image').attr('width', w +'px').attr('height', h + 'px');
+
 //Detect browser compatibility
 var hasGetUserMedia = function(){
   return !!(navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
@@ -96,13 +99,16 @@ if(hasGetUserMedia()){
 
   $('#snapshot').on('click', function(){
     //look at snapshot.js for functionality
+    localStream.stop();
+    $('#main-video').css('display', 'none');
+    $('#main-canvas').show();
     snapShot();
   });
 
   $('#trackbutton').on('click', function(){
     //look at track.js for functionality
     $('#main-video').css('display', 'none');
-    $('#main-canvas').css('visibility', 'visible');
+    $('#main-canvas').css('display', 'inline-block');
     draw();
   });
 
@@ -159,9 +165,12 @@ if(hasGetUserMedia()){
   });
 
   //Stop recording (for dev purposes)
-  $('#stopbutton').on('click', function(){
-    console.log('stopping..');
-    localStream.stop();
+  $('#savebutton').on('click', function(){
+    $('#main-video').css('display', 'none');
+    $('#main-canvas').css('visibility', 'visible');
+    // // console.log('stopping..');
+    // // localStream.stop();
+    saveImage();
   });
 } else {
   //no modern browser detected...fallback?
