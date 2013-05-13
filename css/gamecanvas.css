@@ -3,6 +3,22 @@
     color: #404040;
   }
 
+  #main-video {
+    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -moz-transform:scaleX(-1);
+  }
+
+  #main-canvas {
+    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -moz-transform:scaleX(-1);
+  }
+  
+  #main-image {
+    display: none;
+  }
+
   .media .span4 .game-brand {
     text-align: center;
     font-size: 3em;
