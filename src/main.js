@@ -18,7 +18,8 @@ var v = document.querySelector('#main-video'),
     erasing,
     painting,
     colorChoice,
-    paintArray;
+    paintArray,
+    bgPaintArray;
 
 var pixelDataArray = function(elem) {
   var rowArr, arr = [];
@@ -95,7 +96,8 @@ if(hasGetUserMedia()){
   $('#startbutton').on('click', function(){
     //look at record.js for funcitonality
     recordVideo();
-
+  });
+  
     //change text for directions
     $('#textarea').text('Press the allow button up top to get started!').css('color', 'orange').css('border', '4px dotted orange');
   });
@@ -107,8 +109,23 @@ if(hasGetUserMedia()){
       painting = false;
       erasing = true;
       eraser();
-    };
-  })
+    }
+  });
+
+  $('#background-button').on('click', function(){
+    console.log('bg')
+    $('#main-canvas').css('visibility', 'visible');
+    $('#main-canvas').css('display', 'inline-block');
+    $('#main-video').css('display', 'none');
+    $('#main-canvas').css('background-image', 'url("../img/hedgehog.png")');
+    $('#main-canvas').css('background-size', 'cover');
+    if(bgPaintArray === undefined) {
+      bgPaintArray = createBgPaintArray();
+    }
+    painting = true;
+    erasing = false;
+    background();
+  });
 
   $('#paintbutton').on('click', function(){
     if($('video').attr('src')){
