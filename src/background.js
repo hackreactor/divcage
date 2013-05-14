@@ -25,45 +25,21 @@ var background = function() {
     var ri = Math.floor(pi/w),
         ci = pi % w;
         
-    if (ha >= 75 && ha <= 165 &&
-        s >= 25 && s <= 90 &&
-        l >= 20 && l <= 95) {
-
-      switch(colorChoice) {
-        case 'red':
-        bgPaintArray[ri][ci]=[255,0,0,255]; break;        
-        case 'orange':
-        bgPaintArray[ri][ci]=[255,165,0,255]; break;        
-        case 'yellow':
-        bgPaintArray[ri][ci]=[255,255,0,255]; break;   
-        case 'green':
-        bgPaintArray[ri][ci]=[0,255,0,255]; break; 
-        case 'blue':
-        bgPaintArray[ri][ci]=[98,138,215,255]; break; 
-        case 'purple':
-        bgPaintArray[ri][ci]=[128,0,128,255]; break;   
-        case 'black':
-        bgPaintArray[ri][ci]=[0,0,0,255]; break;  
-        case 'white':
-        bgPaintArray[ri][ci]=[255,255,255,255]; break;
-        default:
-        bgPaintArray[ri][ci]=[0,0,0,255]; break;   
-      };
+    if (isGreen(ha,s,l)) {
+      bgPaintArray[ri][ci] = colorValue;
     }
+
     if (bgPaintArray[ri][ci] === 0){
-      pixels.data[pi * 4 + 3] = 0;
-    } else {
-      pixels.data[pi * 4] = bgPaintArray[ri][ci][0];
-      pixels.data[pi * 4 + 1] = bgPaintArray[ri][ci][1];
-      pixels.data[pi * 4 + 2] = bgPaintArray[ri][ci][2];
+      pixels.data[index + 3] = 0;
+    }
+    else {
+      pixels.data[index] = bgPaintArray[ri][ci][0];
+      pixels.data[index + 1] = bgPaintArray[ri][ci][1];
+      pixels.data[index + 2] = bgPaintArray[ri][ci][2];
     } 
   }
 
-  // scoreSum(scores, map);
-  // findClosestHighScore(scores);
-  
   x.putImageData(pixels, 0, 0);  
-  //highlightPlacer(x, pixels);
 
   // Keep re-rendering unless the current mode is eraser mode
   if(!erasing && painting) {

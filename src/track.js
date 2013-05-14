@@ -2,6 +2,44 @@
 
 /*global mainVideoWidth:false, mainVideoHeight:false, rgb2hsl: false, x:false,
          v:false, hl:false */
+var scoreSum = function(scores, map) {
+  var neighborsCount = 10;
+  for(var ri = neighborsCount; ri < (h - neighborsCount); ri++){
+    for(var ci = neighborsCount; ci < (w - neighborsCount); ci++){
+      scores[ri][ci] = map[ri][ci];
+      // scores[ci][ri] = map[ci][ri];
+      for(var pi = neighborsCount - 1; pi > 0; pi--) {
+        scores[ri][ci] += map[ri - pi][ci] + map[ri + pi][ci];
+        scores[ri][ci] += map[ri][ci - pi] + map[ri][ci + pi];
+      }
+    }
+  }
+};
+
+var findClosestHighScore = function(scores) {
+  //Find the pixel closest to the top left that has the highest score. The
+  //  pixel with the highest score is where the highlight box will appear.
+  var neighborsCount = 10;
+  targetx = 0, targety = 0, targetscore = 0;
+  // Are these global intentionally?
+
+  for(var ri = 10; ri < (h - 10); ri++){
+    for(var ci = 10; ci < (w - 10); ci++){
+      if(scores[ri][ci] > targetscore){
+        targetx = ri;
+        targety = ci;
+        targetscore = scores[ri][ci];
+      }
+    }
+  }
+}
+
+var highlightPlacer = function(x, pixels) {
+  hl.style.left = '' + targetx + 'px';
+  hl.style.top = '' + (($('.button-toolbar').height() * 2) + targety) + 'px';
+  x.putImageData(pixels, 0, 0);
+}
+
 var pixels, pixCount;
 
 var draw = function() {

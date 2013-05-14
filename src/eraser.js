@@ -29,19 +29,10 @@ var eraser = function() {
     var ri = Math.floor(pi/w),
         ci = pi % w;
         
-    if (ha >= 70 && ha <= 180 &&
-        s >= 25 && s <= 90 &&
-        l >= 20 && l <= 95) {
-
+    if (isGreen(ha,s,l)) {
       // Remove color data from the cells that are touched 
       paintArray[ri][ci] = false;
-      // map[ri][ci] = 1;
-
-    } 
-    // else {
-    //   map[ri][ci] = 0;
-    // }
-
+    }
     // If color data exist, paint the pixel with corresponding color 
     if(paintArray[ri][ci]){
       pixels.data[pi * 4] = paintArray[ri][ci][0];
@@ -50,9 +41,6 @@ var eraser = function() {
     }
   }
 
-  // scoreSum(scores, map);
-  // findClosestHighScore(scores);
-  // highlightPlacer(x, pixels);
   x.putImageData(pixels, 0, 0);
 
   //put conditional to below: when does eraser mode stop?

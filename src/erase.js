@@ -36,19 +36,16 @@ var erase = function() {
     var ri = Math.floor(pi/w),
         ci = pi % w;
     
-    if (ha >= 70 && ha <= 180 &&
-        s >= 25 && s <= 90 &&
-        l >= 20 && l <= 95) {
-
+    if (isGreen(ha,s,l)) {
         maskArray[ri][ci]=0;
-        map[ri][ci] = 1;
+        // map[ri][ci] = 1;
     } 
     // else {
     //     map[ri][ci] = 0;
     // }
     pixels.data[pi * 4 + 3] = maskArray[ri][ci];
   }
-
+  //These functions in track.js
   // scoreSum(scores, map);
   // findClosestHighScore(scores);
   // highlightPlacer(x, pixels);
