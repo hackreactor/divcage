@@ -1,3 +1,5 @@
+//background.js: Allows paint on snapshots
+
 var createBgPaintArray = function() {
   return pixelDataArray(0);
 };
@@ -24,11 +26,13 @@ var background = function() {
     
     var ri = Math.floor(pi/w),
         ci = pi % w;
-        
+    
+    //If green, change pixel data to paint color value        
     if (isGreen(ha,s,l)) {
       bgPaintArray[ri][ci] = colorValue;
     }
 
+    //Makes all non-controller pixels transparent, to show snapshot
     if (bgPaintArray[ri][ci] === 0){
       pixels.data[index + 3] = 0;
     }
@@ -38,7 +42,8 @@ var background = function() {
       pixels.data[index + 2] = bgPaintArray[ri][ci][2];
     } 
   }
-
+  
+  //Draw Image with modified pixels
   x.putImageData(pixels, 0, 0);  
 
   // Keep re-rendering unless the current mode is eraser mode

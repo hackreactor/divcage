@@ -1,4 +1,4 @@
-//eraser.js: tracking colors
+//eraser.js: erases painted colors
 
 /*global mainVideoWidth:false, mainVideoHeight:false */
 
@@ -14,8 +14,7 @@ var eraser = function() {
       pixCount = pixels.data.length / 4;
 
   var emptyArray = pixelDataArray(undefined);
-  // var map = emptyArray, scores = emptyArray;
-
+  
   for(var pi = 0; pi < pixCount; pi++){
     index = pi*4;
     r = pixels.data[index];
@@ -41,6 +40,7 @@ var eraser = function() {
     }
   }
 
+  //Draw Image with modified pixels
   x.putImageData(pixels, 0, 0);
 
   //put conditional to below: when does eraser mode stop?

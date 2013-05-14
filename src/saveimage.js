@@ -1,3 +1,4 @@
+//saveimage.js: saves image to file
 
 var saveImage = function(){
   $('.color-palette').fadeOut(400);

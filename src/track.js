@@ -1,4 +1,4 @@
-//track.js: tracking colors
+//track.js: tracking controller, not used in current product
 
 /*global mainVideoWidth:false, mainVideoHeight:false, rgb2hsl: false, x:false,
          v:false, hl:false */

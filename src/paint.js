@@ -1,4 +1,4 @@
-//track.js: tracking colors
+//paint.js: Paint colors on canvas
 
 /*global mainVideoWidth:false, mainVideoHeight:false, rgb2hsl: false, x:false,
          v:false, hl:false, maskArray:false, paintArray:false */
@@ -34,11 +34,13 @@ var paint = function() {
     
     var ri = Math.floor(pi/w),
         ci = pi % w;
-        
+    
+    //If green change, pixel data to paint color value    
     if (isGreen(ha,s,l)){
       paintArray[ri][ci] = colorValue;
     } 
 
+    //If pixel has history, keep history
     if(paintArray[ri][ci]){
       pixels.data[index] = paintArray[ri][ci][0];
       pixels.data[index + 1] = paintArray[ri][ci][1];
@@ -46,10 +48,11 @@ var paint = function() {
     }
   }
   
+  //Draw Image with modified pixels
   x.putImageData(pixels, 0, 0);  
  
   // Keep re-rendering unless the current mode is eraser mode
   if(!erasing && painting) {
-    setTimeout(paint,50);
+    setTimeout(paint,24/1000);
   }
 };
