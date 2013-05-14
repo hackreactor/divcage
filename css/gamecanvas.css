@@ -3,22 +3,10 @@
     color: #404040;
   }
 
-  #main-video {
-    transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    -moz-transform:scaleX(-1);
+  #save-button a {
+    text-decoration: none;
+    color: inherit;
   }
-
-  #main-canvas {
-    transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    -moz-transform:scaleX(-1);
-  }
-
-  #main-image {
-    display: none;
-  }
-
   .media .span4 .game-brand {
     text-align: center;
     font-size: 3em;
@@ -111,18 +99,28 @@
     /*margin-top: 1.5em;*/
     box-shadow: -1px 3px 15px;
     background: whitesmoke;
+    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -moz-transform:scaleX(-1);
   }
 
  /* CANVAS */
 
 
- .media .span8 .main-canvas {
+  .media .span8 .main-canvas {
     display: none;
     padding: 1em;
     background: whitesmoke;
     margin: 4em;
     box-shadow: -1px 3px 15px;
-    z-index: 500;
+  }
+
+  .media .span8 .main-image {
+    display: none;
+    padding: 1em;
+    background: whitesmoke;
+    margin: 4em;
+    box-shadow: -1px 3px 15px;
   }
 
   .media {

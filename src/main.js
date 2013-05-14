@@ -20,7 +20,8 @@ var v = document.querySelector('#main-video'),
     colorChoice,
     colorValue,
     paintArray,
-    bgPaintArray;
+    bgPaintArray,
+    mode;
 
 var pixelDataArray = function(elem) {
   var rowArr, arr = [];
@@ -98,10 +99,9 @@ if(hasGetUserMedia()){
   });
 
   $('#picture-button').on('click', function(){
-    $('#main-canvas').css('visibility', 'visible');
-    $('#main-canvas').css('display', 'inline-block');
-    $('#main-video').css('display', 'none');
-    $('#main-canvas').css('background-image', 'url("../img/hedgehog.png")');
+    mode = 'background';
+    snapShot();
+    $('#main-canvas').css('background-image', 'url(' + dataURL + ')');
     $('#main-canvas').css('background-size', 'cover');
     if(bgPaintArray === undefined) {
       bgPaintArray = createBgPaintArray();
@@ -112,9 +112,6 @@ if(hasGetUserMedia()){
   });
 
   $('#paint-button').on('click', function(){
-    //clear alwaysRecord interval
-    clearInterval();
-
     if($('video').attr('src')){
       if(!colorChoice){
         colorChoice = 'black';
@@ -131,7 +128,11 @@ if(hasGetUserMedia()){
       };
       painting = true;
       erasing = false;
-      paint();
+      if(mode === 'background'){
+        background();
+      } else {
+        paint();
+      }
     } else {
       $('#textarea').text('Please click start to begin painting').css('color', 'red').css('border', '4px dotted red');
     }
@@ -153,16 +154,22 @@ if(hasGetUserMedia()){
       });
 
       $('#main-video').css('display', 'none');
-        if(paintArray === undefined) {
-          paintArray = createPaintArray();
-        };
-        painting = true;
-        erasing = false;
+      if(paintArray === undefined) {
+        paintArray = createPaintArray();
+      };
+      painting = true;
+      erasing = false;
+      if(mode === 'background'){
+        background();
+      } else {
         paint();
-        } else {
-          $('#textarea').text('Please click start to begin painting').css('color', 'red').css('border', '4px dotted red');
-       }
-    });
+      }
+
+    } else {
+      $('#textarea').text('Please click start to begin painting').css('color', 'red').css('border', '4px dotted red');
+    }
+  });
+
 
   $('li').on('click', function(){
     colorChoice = $(this).attr('class');
@@ -178,8 +185,8 @@ if(hasGetUserMedia()){
     $('#main-video').css('display', 'none');
     $('#main-canvas').css('visibility', 'visible');
     saveImage();
-    //add save image modal here
   });
+
 } else {
   //no modern browser detected...fallback?
   alert('please use a better browser');
