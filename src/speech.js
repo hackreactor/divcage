@@ -10,6 +10,7 @@ if (!('webkitSpeechRecognition' in window)) {
   recognition.continuous = true;
 
   recognition.onstart = function(){
+    $('.arrow').remove();
     console.log('recording...');
     recognizing = true;
   }

@@ -23,6 +23,18 @@ var v = document.querySelector('#main-video'),
     bgPaintArray,
     mode;
 
+$(document).ready(function(){
+  $('.modal').modal({show:true});
+  $('.carousel').carousel('pause');
+  $('.carousel').on('slid', '', function() {
+    if($('.carousel-inner .item:last').hasClass('active')) {
+      $('.next').hide();
+      $('.back').hide();
+      $('.skip').text('START');
+    }
+  });
+});
+
 //Set dimensions for elmements
 $('#main-video').attr('width', w +'px').attr('height', h + 'px');
 
@@ -48,6 +60,14 @@ if(hasGetUserMedia()){
     //change text for directions
     $('#textarea').text('Press the allow button up top to get started!').css('color', 'orange').css('border', '4px dotted orange');
   });
+  
+  $('.skip').on('click', function (){
+    $('.modal').modal('hide');
+      recordVideo();
+    $('<img class="svg arrow" src="./img/arrow.svg" />').appendTo('body')
+      .fadeIn('slow', toggleArrow);
+  });
+
 
   //Erase paint
   $('#eraser-button').on('click', function(){
@@ -104,6 +124,8 @@ if(hasGetUserMedia()){
 
   //Color choice from speech
   $('#speech-button').on('click',function(){
+    $('<img class="svg arrow" src="./img/arrow.svg" />').appendTo('body')
+      .fadeIn('slow', toggleArrow);
     if($('video').attr('src')){
       $('canvas').show();
       console.log('recording...');

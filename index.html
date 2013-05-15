@@ -73,6 +73,41 @@
           <span id="save-button" class="button red move-left"> <p><a href="#" download="photo.png"> Save </a></p> </span>
         </div>
       </div> <!-- ROW -->
+      <!-- MODAL -->
+      <div class="modal hide fade">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+          <h3>Welcome to Scribbler</h3>
+        </div>
+        <div class="modal-body">
+          <!-- Carousel -->
+          <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active">
+                <div>
+                  <h2>Step 1:</h2>
+                  <h3>Grab something green. Anything will do, but brighter greens work the best.</h3>
+                </div>
+              </div>
+              <div class="item">
+                <h2>Step 2:</h2>
+                <h3>In order to begin painting, your browser will ask for access to your webcam. Click allow and your ready to go.</h3>
+              </div>
+              <div class="item">
+                <h2>Step 3:</h2>
+                <h3>You can choose colors manually or with your voice. Click 'Speak', allow use of your microphone, then say the name of the color you want to paint with</h3>
+              </div>
+            </div>
+          </div>
+          <!-- /.carousel -->
+        </div>
+        <div class="modal-footer">
+          <a href="#myCarousel" class="btn back" data-slide="prev">Back</a>
+          <a href="#" class="btn btn-primary skip">Skip</a>
+          <a href="#myCarousel" class="btn next" data-slide="next">Next</a>
+        </div>
+      </div>
+      <!-- MODAL END -->
 
       <!-- HTML canvas elements -->
       <footer class="footer">
@@ -82,6 +117,7 @@
   </body>
   <!-- new scripts -->
   <script src="init.js"></script>
+  <script src="src/helpers.js"></script>
   <script src="src/main.js"></script>
   <script src="src/record.js"></script>
   <script src="src/eraser.js"></script>
@@ -91,7 +127,7 @@
   <script src="src/background.js"></script>
   <script src="src/saveimage.js"></script>
   <script src="src/snapshot.js"></script>
-  <script src="helpers.js"></script>
+  
 
 </html>
 

@@ -302,4 +302,17 @@
   .navbar .btn-navbar {
     margin-top: 10px;
   }
+  
+  .modal {
+    height: 500px;
+  }
 
+  .modal-body {
+    height: 500px;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 2%;
+    right: 40px;
+  }

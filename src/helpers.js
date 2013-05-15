@@ -39,3 +39,8 @@ var isGreen = function(ha,s,l) {
            s >= 25 && s <= 90 &&
            l >= 20 && l <= 95)
 };
+
+//Flash the Allow Arrow
+var toggleArrow = function(){ 
+  $('.arrow').fadeToggle('slow', toggleArrow);
+};
