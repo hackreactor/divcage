@@ -24,6 +24,9 @@ var v = document.querySelector('#main-video'),
     pencilClass,
     currentText,
     wordArray,
+    lastBgArray,
+    lastMode = 'video',
+    videoRunning = false,
     mode;
 
 $(document).ready(function(){
@@ -58,12 +61,22 @@ if(hasGetUserMedia()){
 
   //List of all button functionalities
   $('#start-button').on('click', function(){
-    //look at record.js for funcitonality
-    recordVideo();
-    //change text for directions
-   $('#start-button p').text('Restart');
+    if(!videoRunning) {
+      recordVideo();
+      $('#textarea').text('Press the allow button up top to start!');
+      // change text for directions
+      // $('#start-button p').text('Restart');
+      $('#start-button p').text('Clear');
+    }
 
-    $('#textarea').text('Press the allow button up top to start!');
+    switch(lastMode) {
+      case 'video':
+        paintArray = pixelDataArray(undefined); break;
+      case 'bgimg':
+        bgPaintArray = lastBgArray; break;
+      default:
+        console.log('ignored!');
+    }
   });
   
   $('.skip').on('click', function (){

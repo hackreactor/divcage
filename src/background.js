@@ -5,7 +5,9 @@ var createBgPaintArray = function() {
 };
 
 var background = function() {
-
+  lastMode = 'bgimg';
+  lastBgArray = bgPaintArray;
+  
   x.drawImage(v, 0, 0, w, h);
   x.restore();
 
