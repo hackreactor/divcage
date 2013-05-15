@@ -2,13 +2,14 @@
 
 /*global x:false, c:false, v:false, mainVideoWidth:false, mainVideoHeight:false, canvas:false */
 var snapShot = function(){
+  $('.color-palette').fadeOut(400);
 	$('.main-video').hide();
-  x.save();
-  x.translate(w, 0);
-  x.scale(-1,1);
-  x.drawImage(v, 0, 0, w, h);
-  x.restore();
+  flipCanvas();
   $('.main-canvas').show();
   dataURL = c.toDataURL();
-  image.src = dataURL;
+  $('#main-canvas').css('background-image', 'url(' + dataURL + ')');
+  $('#main-canvas').css('background-size', 'cover');
+  if(bgPaintArray === undefined) {
+    bgPaintArray = createBgPaintArray();
+  }
 };

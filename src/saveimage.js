@@ -5,11 +5,7 @@ var saveImage = function(){
   //if it's a pure video stream, hide it and render the current frame to the canvas
   if(!painting && !erasing){  
     $('.main-video').hide();
-    x.save();
-    x.translate(w, 0);
-    x.scale(-1,1);
-    x.drawImage(v, 0, 0, w, h);
-    x.restore();
+    flipCanvas();
     $('.main-canvas').show();
   }
   //otherwise it will already be a canvas 
@@ -19,4 +15,3 @@ var saveImage = function(){
   $('.main-image').show();
   $('#save-button a').attr("href",dataURL);
 };
-

@@ -8,6 +8,7 @@ var recordVideo = function(){
     //v is the video element set in main.js
     v.src = window.URL.createObjectURL(localStream);
   	if($('video').attr('src')){
+  		displayElement = 'video';
   	  $('.arrow').remove();
   	};
   });
