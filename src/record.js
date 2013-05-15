@@ -11,4 +11,5 @@ var recordVideo = function(){
   	  $('.arrow').remove();
   	};
   });
+  videoRunning = true;
 };
