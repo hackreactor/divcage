@@ -8,6 +8,7 @@ var createPaintArray = function() {
 };
 
 var paint = function() {
+  lastMode = 'video';
 
   x.save();
   x.translate(w, 0);

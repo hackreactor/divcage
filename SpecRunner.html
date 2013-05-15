@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jasmine Test Runner</title>
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-1.0.0/jasmine.css">
+  <script type="text/javascript" src="lib/jasmine-1.0.0/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-1.0.0/jasmine-html.js"></script>
+
+  <!-- source files -->
+  <script type="text/javascript" src="src/background.js"></script>
+  <script type="text/javascript" src="src/erase.js"></script>
+  <script type="text/javascript" src="src/eraser.js"></script>
+  <script type="text/javascript" src="src/magiceraser.js"></script>
+  <script type="text/javascript" src="src/main.js"></script>
+  <script type="text/javascript" src="src/record.js"></script>
+  <script type="text/javascript" src="src/rgb2hsl.js"></script>
+  <script type="text/javascript" src="src/saveimage.js"></script>
+  <script type="text/javascript" src="src/snapshot.js"></script>
+  <script type="text/javascript" src="src/speech.js"></script>
+  <script type="text/javascript" src="src/track.js"></script>
+
+  <!-- spec files -->
+  <!--
+  <script type="text/javascript" src="spec/backgroundSpec.js"></script>
+  <script type="text/javascript" src="spec/eraseSpec.js"></script>
+  <script type="text/javascript" src="spec/eraserSpec.js"></script>
+  <script type="text/javascript" src="spec/magiceraserSpec.js"></script>
+  <script type="text/javascript" src="spec/mainSpec.js"></script>
+  <script type="text/javascript" src="spec/recordSpec.js"></script>
+  <script type="text/javascript" src="spec/rgb2hslSpec.js"></script>
+  <script type="text/javascript" src="spec/saveimageSpec.js"></script>
+  <script type="text/javascript" src="spec/snapshotSpec.js"></script>
+  <script type="text/javascript" src="spec/speechSpec.js"></script>
+  <script type="text/javascript" src="spec/trackSpec.js"></script>-->
+</head>
+<body>
+
+<script type="text/javascript">
+  jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+  jasmine.getEnv().execute();
+</script>
+
+</body>
+</html>
