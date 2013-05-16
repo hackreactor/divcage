@@ -336,15 +336,55 @@
   /* Overwrite Bootstrap */
 
   .modal {
-    height: 500px;
+    height: 400px;
   }
 
   .modal-body {
-    height: 500px;
+    height: 300px;
   }
 
   .arrow {
     position: absolute;
     top: 2%;
     right: 40px;
+  }
+
+  .greenImg {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .greenApple {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .greenLeaf {
+    margin-left: 25px;
+  }
+
+  .slide2Img {
+    float: right;
+    margin-top: -30px;
+  }
+
+  .slide3Img {
+    float: right;
+    margin-top: -20px;
+  }
+
+  .allowImg {
+    margin-top: 12px;
+    border-radius: 15px;
+    border: solid black 2px;
+    margin-bottom: 15px;
+  }
+
+  .slide2Draw p {
+     background: -webkit-gradient(linear, left top, left bottom, from(rgba(102, 0, 255, 0.8)),to(rgba(28, 0, 172, 0.8)));
+  }
+
+  .slide3Draw p {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 133, 255, 0.8)),to(rgba(0, 55, 172, 0.8)));
   }

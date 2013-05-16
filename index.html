@@ -56,7 +56,7 @@
           <!-- </div> -->
         </div>
         <div class="span2">
-            <span id="paint-button" class="button top-margin purple"> <p><i class="icon-pencil"></i>Draw</p></span>
+           <span id="paint-button" class="button top-margin purple"> <p><i class="icon-pencil"></i>Draw</p></span>
            <span id="eraser-button" class="button orange"> <p><i class="icon-eraser"></i>Erase</p></span>
            <span id="speech-button" class="button blue"> <p><i class="icon-microphone"></i>Talk</p> </span>
            <span id="picture-button" class="button yellow"><p><i class="icon-camera"></i>Pic</p></span>
@@ -75,23 +75,43 @@
               <div class="item active">
                 <div>
                   <h2>Step 1:</h2>
-                  <h3>Grab something green. Anything will do, but brighter greens work the best.</h3>
+                  <h3>Grab something green. Anything will do, but brighter greens and good lighting work best.</h3>
+                </div>
+                <div class="greenImg">
+                  <img class="greenCrayon" src="./img/crayon.png"></img>
+                  <img class="greenApple" src="./img/gam.png"></img>
+                  <img class="greenLeaf" src="./img/greenleaf1.png"></img>
                 </div>
               </div>
               <div class="item">
                 <h2>Step 2:</h2>
-                <h3>In order to begin painting, your browser will ask for access to your webcam. Click allow and your ready to go.</h3>
+                <div class="slide2Img">
+                  <div class="allow">
+                    <img class="allowImg" src="./img/allow.png"></img>
+                  </div>
+                  <span id="paint-button" class="button slide2Draw"> <p><i class="icon-pencil"></i>Draw</p></span>
+                </div>
+                <span class="step2">
+                  <h3>In order to begin drawing, your browser will ask for access to your webcam. Click 'Allow', then 'Draw' and you're ready to go.</h3>
+                </span>
               </div>
               <div class="item">
                 <h2>Step 3:</h2>
-                <h3>You can choose colors manually or with your voice. Click 'Speak', allow use of your microphone, then say the name of the color you want to paint with</h3>
+                <div class="slide3Img">
+                  <span id="speech-button" class="button slide3Draw"> <p><i class="icon-microphone"></i>Talk</p> </span>
+                  <div class="allow">
+                    <img class="allowImg" src="./img/allow.png"></img>
+                  </div>
+                </div>
+                <span class="step3">
+                <h3>Choose colors manually or with your voice. Click 'Talk', allow use of your microphone, and say the name of the color you want to paint with.</h3>
+                </span>
               </div>
             </div>
           </div>
           <!-- /.carousel -->
         </div>
         <div class="modal-footer">
-          <a href="#myCarousel" class="btn back" data-slide="prev">Back</a>
           <a href="#" class="btn btn-primary skip">Skip</a>
           <a href="#myCarousel" class="btn next" data-slide="next">Next</a>
         </div>
