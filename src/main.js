@@ -6,6 +6,8 @@
 var v = document.querySelector('#main-video'),
     c = document.querySelector('#main-canvas'),
     image = document.querySelector('#main-image'),
+    oc = document.querySelector('#offscreen-canvas'),
+    ocx = oc.getContext('2d'),
     //canvas x cord size
     x = c.getContext('2d'),
     hl = document.querySelector('#highlight'),
@@ -48,6 +50,8 @@ $(document).ready(function(){
 $('#main-video').attr('width', w +'px').attr('height', h + 'px');
 
 $('#main-canvas').attr('width', w +'px').attr('height', h + 'px');
+
+$('#offscreen-canvas').attr('width', w +'px').attr('height', h + 'px');
 
 $('#main-image').attr('width', w +'px').attr('height', h + 'px');
 
@@ -127,7 +131,6 @@ if(hasGetUserMedia()){
       painting = true;
       erasing = false;
       if(displayElement === 'canvas'){
-        console.log("calling background...");
         background();
       } else {
         paint();
