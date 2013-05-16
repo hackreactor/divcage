@@ -1,4 +1,5 @@
 // Implementing Speech to Text
+
 if (!('webkitSpeechRecognition' in window)) {
   alert('Oh no your browser is too old for this!');
 } else {
@@ -10,6 +11,7 @@ if (!('webkitSpeechRecognition' in window)) {
   recognition.continuous = true;
 
   recognition.onstart = function(){
+    allowed = 'yes';
     $('.arrow').remove();
     console.log('recording...');
     recognizing = true;
@@ -38,6 +40,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
   var reset = function() {
     recognizing = false;
+    allowed = 'no';
     $('#speech-button p').text('Speak').parent().removeClass('orange').addClass('blue-purple');
   }
 

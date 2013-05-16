@@ -24,11 +24,13 @@ var v = document.querySelector('#main-video'),
     pencilClass,
     currentText,
     wordArray,
+    allowed,
     displayElement,
     lastBgArray,
     lastMode = 'video',
     videoRunning = false,
     mode;
+
 
 $(document).ready(function(){
   $('.modal').modal({show:true});
@@ -36,10 +38,10 @@ $(document).ready(function(){
   $('.carousel').on('slid', '', function() {
     if($('.carousel-inner .item:last').hasClass('active')) {
       $('.next').hide();
-      $('.back').hide();
-      $('.skip').text('START');
+      $('.skip').text('START').addClass('btn-large').addClass('btn-success');
     }
   });
+  allowed = 'no'
 });
 
 //Set dimensions for elmements
@@ -82,8 +84,10 @@ if(hasGetUserMedia()){
   $('.skip').on('click', function (){
     $('.modal').modal('hide');
       recordVideo();
-    $('<img class="svg arrow" src="./img/arrow.svg" />').appendTo('body')
+    // if(allowed === 'no'){
+      $('<img class="svg arrow" src="./img/arrow.svg" />').appendTo('body')
       .fadeIn('slow', toggleArrow);
+    // }
   });
 
 
@@ -135,8 +139,10 @@ if(hasGetUserMedia()){
 
   //Color choice from speech
   $('#speech-button').on('click',function(){
-    $('<img class="svg arrow" src="./img/arrow.svg" />').appendTo('body')
+    if(allowed === 'no'){
+      $('<img class="svg arrow" src="./img/arrow.svg" />').appendTo('body')
       .fadeIn('slow', toggleArrow);
+    }
     if($('video').attr('src')){
       $('video').hide();
       $('canvas').show();
