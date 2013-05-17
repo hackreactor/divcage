@@ -37,6 +37,11 @@
 
   }
 
+  .offscreen-canvas {
+    display: none;
+
+  }
+
   #main-image {
     display: none;
   }

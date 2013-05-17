@@ -4,7 +4,7 @@
 
 var eraser = function() {
   flipCanvas();
-  
+  displayElement = 'canvas';
   var pixels = x.getImageData(0, 0, w, h),
       pixCount = pixels.data.length / 4;
 
