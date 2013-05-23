@@ -30,7 +30,7 @@ Developers
 
 Current Version
 -
-0.5.1 - Updating master README.md and prepping for soft release
+0.6.0 - Updating master README.md and prepping for soft release
  
 Inspiration
 -
