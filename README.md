@@ -1,6 +1,6 @@
 HTML5 Kids Game...?
 =========
-Currently Deployed at: http://scribbles.herokuapp.com/
+Currently Deployed at: http://scribblers.herokuapp.com/
 
 This project utilizes the HTML5 [getUserMedia API] to manipulate the Canvas.
 
