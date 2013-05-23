@@ -14,10 +14,19 @@ This project utilizes the HTML5 [getUserMedia API] to manipulate the Canvas.
 Developers
 -
 ####Seung Lim - [seung]
+  - Worked on Algorithm for tracking pixel values on the screen & wrote tests using the Jasmine Framework
+
 ####Chad Reed - [chadreed-intl]
+  - Worked on optimizing the tracking Algorithm with Seung and focused on the speed & usability of draw
+
 ####Tyson Daughtery - [gigmania]
+  - Worked on intial wireframing/big picture & UI 
+
 ####Anthony Singhavong - [bigthyme]
+  - Worked on the server, the Google Speech to Text API, and the final UI
+
 ####Philip Rosen - [philipjrosen]
+  - Worked with the html5 canvas API and wrote code to integrate some of the UI features with the canvas functionality
 
 Current Version
 -
